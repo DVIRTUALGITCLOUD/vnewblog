@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}edit blog post{% endblock %}
+{% block content %}
+
+
+{% if user.is_authenticated %}
+  {% if user.id == post.author.id %}
+
+<h1>Update Post...</h1>
+<br/></br>
+<div class="form-group">
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-secondary">Post</button>
+</div>
+{% else %}
+
+paj intedi (reseve spesyal)
+
+{% endif %}
+
+
+
+{% else %}
+
+paj intedi (reseve spesyal)
+
+{% endif %}
+
+{% endblock %}
